@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shyam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(rgb(15, 9, 29), rgb(16, 10, 31));
+            color: rgb(255, 255, 255);
+            font-family: 'poppins', sans-serif;
+        }
+
+        #About {
+            background: linear-gradient(rgb(16, 10, 31), rgb(10, 7, 17));
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            height: 80px;
+            background: linear-gradient(rgb(27, 13, 45), rgb(15, 9, 29));
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 24px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: antiquewhite;
+            position: relative;
+        }
+
+        .info li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: 0.5s;
+        }
+
+        .info li a:hover::after {
+            width: 100%;
+        }
+
+        .left {
+            margin-left: 10%;
+            flex-basis: 30%;
+            font-size: 1.8rem;
+        }
+
+        .right {
+            flex-basis: 80%;
+        }
+
+        .firstsection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0px 0;
+            padding-top: 130px;
+        }
+
+        .firstsection>div {
+            width: 30%;
+        }
+
+
+        .rightsection img {
+            width: 120%;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+
+        }
+
+        .leftsection {
+            font-size: 2.5rem;
+        }
+
+        .btn {
+            background: rgb(41, 30, 65);
+            color: aliceblue;
+            cursor: pointer;
+            border: 2px solid wheat;
+            padding: 12px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            font-size: 16px;
+        }
+
+        .btn1 {
+            background-color: rgb(134, 95, 224);
+            padding: 12px 24px;
+            cursor: pointer;
+            margin-left: 10px;
+            border: 2px solid black;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            font-size: 16px;
+        }
+
+
+        .grey {
+            color: rgb(170, 76, 243);
+        }
+
+        #element {
+            color: rgb(170, 76, 243);
+        }
+
+        .container {
+            padding-top: 140px;
+            margin-left: 10%;
+        }
+
+        .sub-title {
+            font-size: 50px;
+        }
+
+        #About {
+            color: #ababab;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .column1 {
+            flex-basis: 35%;
+        }
+
+        .column1 img {
+            width: 80%;
+            border-radius: 15px;
+        }
+
+        .column2 {
+            flex-basis: 65%;
+        }
+
+        .tab-titles {
+            display: flex;
+            padding-top: 20px;
+            justify-content: space-around;
+
+        }
+
+        .tab-links {
+            font-weight: 700;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-links::after {
+            content: '';
+            background: rgb(170, 76, 243);
+            height: 3px;
+            width: 0;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+
+        .tab-links.active-link::after {
+            width: 50%;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+
+        #projects{
+            background: linear-gradient(rgb(10, 7, 17),black);
+            padding-right: 80px;
+            color: #ababab;
+        }
+        .worklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 50px;
+            margin-top: 50px;
+        }
+
+        .work img {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .work{
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .layer{
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0,0,0,0.6),rgb(170, 76, 243));
+            border-radius: 10px;
+            position: absolute; 
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+
+        .work:hover img{
+            transform: scale(1.1);
+        }
+
+        .work:hover .layer{
+            height: 100%;
+        }
+
+        #contact{
+            padding-bottom: 100px;
+        }
+        .contact-left{
+            flex-basis: 35%;
+        }
+
+        .contact-right{
+            flex-basis: 60%;
+        }
+
+        .contact-left p{
+            margin-top: 30px;
+        }
+
+        .contact-left p i{
+            color: rgb(170, 76, 243);
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .social-icons{
+            margin-top: 30px;
+        }
+
+        .social-icons a{
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+        .social-icons a:hover{
+            color: rgb(170, 76, 243);
+            transform: translateY(-5px);
+        }
+
+        #contact{
+            padding-top: 20px;
+        }
+
+        .contact-right form{
+            width: 100%;
+        }
+        form input, form textarea{
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        #msg{
+            color: aqua;
+            padding: 15px;
+            display: block;
+        }
+        
+        .resume{
+            text-decoration: none;
+            color: wheat;
+        }
+
+        .resume1{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    
+    <div id="home">
+        <nav>
+            <div class="left">Shyam's Website</div>
+            <div class="right">
+                <ul class="info">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <section class="firstsection">
+                <div class="leftsection">
+                    Hi, My name<br>
+                    <span class="grey">
+                        Shyam Sai Teja
+                    </span>
+                    <div>
+                        and i have Passion on
+                    </div>
+                    <span id="element"></span>
+                    <div class="button">
+                        <button class="btn"><a href="./Shyam_Sai_Teja (1).pdf" class="resume" download>Download Resume</a></button>
+                        <button class="btn1"><a href="https://github.com/Shyamsaitejamandibi" class="resume1">Visit Github</a></button>
+                    </div>
+                </div>
+                <div class="rightsection"><img src="./dp1.jpg"></div>
+            </section>
+        </main>
+    </div>
+
+
+    <div id="About">
+        <div class="container">
+            <div class="row">
+                <div class="column1">
+                    <img src="./bg.jpg">
+                </div>
+                <div class="column2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore quos eveniet repudiandae hic
+                        sequi animi corrupti sint sed dolorum nemo in iusto ut, temporibus natus eaque ipsum itaque,
+                        suscipit atque.
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="OpenTab('skills')">Skills</p>
+                        <p class="tab-links" onclick="OpenTab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming Languages :</span>C++, Javascript, Python, C, Kotlin, HTML, SQL</li>
+                            <li>World</li>
+                            <li>To my World</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li>To my World</li>
+                            <li>hello</li>
+                            <li>World</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects">
+        <div class="container">
+            <h1 class="sub-title">Projects</h1>
+            <div class="worklist">
+                <div class="work">
+                    <img src="./work-1.png" alt="">
+                    <div class="layer">
+                        <h3>Web App</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem facere
+                            distinctio atque fugit facilis dolore sapiente tempora, ipsam hic provident nisi mollitia
+                            voluptatum dolores molestiae debitis optio! Officiis, ducimus?</p>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./work-2.png" alt="">
+                    <div class="layer">
+                        <h3>Web App</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem facere
+                            distinctio atque fugit facilis dolore sapiente tempora, ipsam hic provident nisi mollitia
+                            voluptatum dolores molestiae debitis optio! Officiis, ducimus?
+                        </p>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./work-3.png" alt="">
+                    <div class="layer">
+                        <h3>Web App</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem facere
+                            distinctio atque fugit facilis dolore sapiente tempora, ipsam hic provident nisi mollitia
+                            voluptatum dolores molestiae debitis optio! Officiis, ducimus?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact">
+            <div class="container">
+                <h1 class="sub-title">Contact Me</h1>
+                <div class="row">
+                    <div class="contact-left">
+                        <p><i class="fas fa-paper-plane"></i>tejashyamsai@gmail.com</p>
+                        <p><i class="fas fa-user"></i>+91 6300425734</p>
+                        <div class="social-icons">
+                            <a href="https://auth.geeksforgeeks.org/user/ee21basef"><i class="fas fa-code"></i></a>
+                            <a href="https://www.instagram.com/m.shyamsaiteja/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/Shyamsaitejamandibi"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button class="btn1" type="submit">Submit</button>
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsDe_EactHnDQS_wDD0rsKz5znylU4QtK2cwKUAK0326_NkYMrMRxrVHrbmZtdSZto/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg =document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+
+    <script>
+        var tablink = document.getElementsByClassName("tab-links")
+        var tabcontent = document.getElementsByClassName("tab-contents")
+
+        function OpenTab(tabname) {
+            for (link of tablink) {
+                link.classList.remove("active-link")
+            }
+            for (content of tabcontent) {
+                content.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+
+    </script>
+
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Android Development', 'Web Development'],
+            typeSpeed: 50,
+        });
+    </script>
+
+</body>
+
+</html>
